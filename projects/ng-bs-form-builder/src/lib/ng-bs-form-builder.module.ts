@@ -39,7 +39,19 @@ import { DatetimeComponent } from './fields/datetime/datetime.component';
     ReactiveFormsModule,
   ],
   exports: [
-    NgBsFormBuilderComponent
+    NgBsFormBuilderComponent,
+    FormBuilderComponent,
+    FieldBuilderComponent,
+    TextboxComponent,
+    DropdownComponent,
+    RadioComponent,
+    CheckboxComponent,
+    FileComponent,
+    SwitchComponent,
+    RangeComponent,
+    DateComponent,
+    TimeComponent,
+    DatetimeComponent
   ]
 })
 export class NgBsFormBuilderModule { }

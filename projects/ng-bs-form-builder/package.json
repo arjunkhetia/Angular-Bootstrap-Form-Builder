@@ -1,11 +1,26 @@
 {
   "name": "ng-bs-form-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Reactive Form Builder For Angular Using Bootstrap UI Framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder.git"
+  },
+  "author": "arjunkhetia <arjunkhetia@gmail.com>",
   "peerDependencies": {
     "@angular/common": "^10.2.0",
     "@angular/core": "^10.2.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/issues"
+  },
+  "keywords": [
+    "Form Builder",
+    "Reactive Form Builder",
+    "Angular Form Builder",
+    "Bootstrap Form Builder"
+  ]
 }
