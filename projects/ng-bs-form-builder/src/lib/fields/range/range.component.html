@@ -1,1 +1,11 @@
-<p>range works!</p>
+<div [formGroup]="form">
+    <input type="range" [min]="field.min" [max]="field.max" [step]="field.step" class="w-100"
+        [class.is-invalid]="isDirty && !isValid" [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name"
+        [name]="field.name" (input)="stepChange($event)" (change)="stepChange($event)" [formControlName]="field.name">
+    <div class="text-center">
+        {{ field.sliderLabel }} {{ step }}
+    </div>
+    <div *ngIf="field.validationMessage" class="invalid-feedback">
+        {{ field.validationMessage }}
+    </div>
+</div>
