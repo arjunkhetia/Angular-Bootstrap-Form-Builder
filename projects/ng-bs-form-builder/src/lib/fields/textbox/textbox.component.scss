@@ -1,0 +1,9 @@
+@import "../ng-bs-form-builder.scss";
+
+.form-control {
+  @include fluid-typography(16, 18, 300, 1500);
+}
+
+.invalid-feedback {
+  @include fluid-typography(14, 16, 300, 1500);
+}

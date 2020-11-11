@@ -1,1 +1,11 @@
-<p>textbox works!</p>
+<div [formGroup]="form">
+    <input *ngIf="!field.multiline" [attr.type]="field.type" class="form-control"
+        [class.is-invalid]="isDirty && !isValid" [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name"
+        [name]="field.name" [formControlName]="field.name" [placeholder]="field.placeholder">
+    <textarea *ngIf="field.multiline" class="form-control" [class.is-invalid]="isDirty && !isValid"
+        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name" [name]="field.name"
+        [formControlName]="field.name" rows="{{field.lines}}" [placeholder]="field.placeholder"></textarea>
+    <div *ngIf="field.validationMessage" class="invalid-feedback">
+        {{ field.validationMessage }}
+    </div>
+</div>
