@@ -1,1 +1,14 @@
-<p>dropdown works!</p>
+<div [formGroup]="form">
+    <select class="form-control custom-select" [class.is-invalid]="isDirty && !isValid"
+        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name" [formControlName]="field.name">
+        <option *ngIf="field.placeholder" value="" disabled selected>
+            {{ field.placeholder }}
+        </option>
+        <option *ngFor="let opt of field.options" [value]="opt.key">
+            {{opt.label}}
+        </option>
+    </select>
+    <div *ngIf="field.validationMessage" class="invalid-feedback">
+        {{ field.validationMessage }}
+    </div>
+</div>
