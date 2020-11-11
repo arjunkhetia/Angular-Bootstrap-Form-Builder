@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-Bootstrap-Form-Builder"
+    }
+  },
+  "defaultProject": "Angular-Bootstrap-Form-Builder",
+  "cli": {
+    "analytics": "5756a65a-a166-44fa-9e41-1060ba4f8a49"
+  }
 }
