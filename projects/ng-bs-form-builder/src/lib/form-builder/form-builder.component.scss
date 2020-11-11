@@ -1,0 +1,6 @@
+@import "../ng-bs-form-builder.scss";
+
+.card-header {
+  @include fluid-typography(16, 20, 300, 1500);
+  font-weight: 500;
+}
