@@ -1,0 +1,5 @@
+@import "../ng-bs-form-builder.scss";
+
+.form-control-label {
+  @include fluid-typography(16, 18, 300, 1500);
+}
