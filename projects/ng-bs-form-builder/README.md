@@ -1,24 +1,91 @@
-# NgBsFormBuilder
+# Angular Bootstrap Form Builder (EmanciTech)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+The library is developed by [EmanciTech](https://www.emancitech.com/) to provides Angular components that help developers to quickly generate Bootstrap Reactive Form from JavaScript object. Component supports validators, help messages and error messages.
 
-## Code scaffolding
+Based on ReactiveFormsModule from @angular/forms. Available custom and all angular built-in form elements. Automatically create full customised form with simple javascript object configuration. Also support some of the CSS styling for form attributes.
 
-Run `ng generate component component-name --project ng-bs-form-builder` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-bs-form-builder`.
-> Note: Don't forget to add `--project ng-bs-form-builder` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+Install npm package into your Angular application
+```bash
+$ npm install ng-bs-form-builder --save
+```
 
-Run `ng build ng-bs-form-builder` to build the project. The build artifacts will be stored in the `dist/` directory.
+Once installed you need to import the main module
+```typescript
+import { NgBsFormBuilderModule } from 'ng-bs-form-builder';
 
-## Publishing
+@NgModule({
+    imports: [
+        NgBsFormBuilderModule
+    ]
+})
+export class AppModule {
+```
 
-After building your library with `ng build ng-bs-form-builder`, go to the dist folder `cd dist/ng-bs-form-builder` and run `npm publish`.
+## Dependencies
 
-## Running unit tests
+- [Bootstrap](https://github.com/ng-bootstrap/ng-bootstrap/)
 
-Run `ng test ng-bs-form-builder` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Further help
+### Create your data model object
+```typescript
+public formConfig: any = {
+    title: "Sample Form",                             // Form name to display
+    result: "formData",                               // Object where we want to store the form result
+    controls: {
+      saveButton: 'Save',                             // Save button name
+      resetButton: 'Reset'                            // Reset button name
+    },
+    fields: [                                         // Defining fields of our form
+      {
+        type: 'text',                                 // Field type (text, email, password, number, dropdown, radio, checkbox, switch, range, date, time, datetime & file)
+        name: 'fullName',                             // Unique field name
+        label: 'Full Name',                           // Field label
+        value: '',                                    // Field value
+        required: true,                               // Necessary field or not
+        validationMessage: 'Full Name is required.',  // Validation error message
+        multiline: false,                             // Multiline field or not
+        lines: 5,                                     // Number of rows for field (Note: only for multiline input field)
+        placeholder: 'Full Name',                     //Placeholder to show inside field
+        options: [                                    // Options to populate the field (Note: only for radio, dropdown, checkbox & switch)
+          { key: 'male', label: 'Male' },
+          { key: 'female', label: 'Female' },
+          { key: 'other', label: 'Other' }
+        ],
+        min: '0',                                     // Minimum field value
+        max: '100',                                   // Maximum field value (Note: only for date & range)
+        step: 5,                                      // Step field value (Note: only for range)
+        sliderLabel: '$',                             // Slider label for field (Note: only for range)
+        multiple: true,                               // Multiple file upload support for field (Note: only for file)
+        onUpload: this.onUpload.bind(this),           // Function to call on file upload (Note: only for file)
+        style: 'row',                                 // Layout type (row & column) (Note: only for checkbox, switch & radio)
+      }
+    ]
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+onUpload(event: any) {                                // Upload function called when any file is selected
+    let files = event.target.files;
+    console.log(files[0]);
+}
+```
+
+### HTML Form
+
+Snippet below will generate form fields
+```html
+<ng-bs-form-builder [formConfig]="formConfig"></ng-bs-form-builder>
+```
+
+### Form
+
+![Form](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/form.png)
+
+### Validation Error Form
+
+![Error Form](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/errorform.png)
+
+### Filled Form
+
+![Filled Form](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/filledform.png)
