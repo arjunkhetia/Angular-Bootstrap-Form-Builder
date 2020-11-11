@@ -1,1 +1,8 @@
-<p>datetime works!</p>
+<div [formGroup]="form">
+    <input type="datetime-local" class="form-control" [class.is-invalid]="isDirty && !isValid"
+        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name" [name]="field.name"
+        [formControlName]="field.name" />
+    <div *ngIf="field.validationMessage" class="invalid-feedback">
+        {{ field.validationMessage }}
+    </div>
+</div>
