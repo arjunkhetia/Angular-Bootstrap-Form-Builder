@@ -128,6 +128,46 @@
           }
         }
       }
+    },
+    "ng-bs-form-builder": {
+      "projectType": "library",
+      "root": "projects/ng-bs-form-builder",
+      "sourceRoot": "projects/ng-bs-form-builder/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-bs-form-builder/tsconfig.lib.json",
+            "project": "projects/ng-bs-form-builder/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-bs-form-builder/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-bs-form-builder/src/test.ts",
+            "tsConfig": "projects/ng-bs-form-builder/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-bs-form-builder/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-bs-form-builder/tsconfig.lib.json",
+              "projects/ng-bs-form-builder/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Angular-Bootstrap-Form-Builder",

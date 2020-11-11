@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular-Bootstrap-Form-Builder';
+  title = 'Angular Bootstrap Form Builder';
 }
