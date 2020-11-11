@@ -1,1 +1,15 @@
-<p>checkbox works!</p>
+<div [formGroup]="form">
+    <div [formGroupName]="field.name">
+        <div class="form-group form-check" [ngClass]="{'is-invalid': isTouched && isEmpty }"
+            [ngClass]="field.style === 'row' ? 'f-row' : 'f-column'">
+            <div *ngFor="let opt of field.options" class="pad-bot">
+                <input class="form-check-input" id="opt.key" type="checkbox" [value]="opt.key"
+                    [checked]="checkChecked(opt.key, field.value)" (change)="onCheckChange($event)">
+                <label class="form-check-label">{{opt.label}}</label>
+            </div>
+        </div>
+        <div *ngIf="field.validationMessage && field.required" class="invalid-feedback">
+            {{ field.validationMessage }}
+        </div>
+    </div>
+</div>
