@@ -9,7 +9,6 @@ export class AppComponent {
   title = 'Angular Bootstrap Form Builder';
   public formConfig: any = {
     title: "Sample Form",
-    result: "formData",
     controls: {
       saveButton: 'Save',
       resetButton: 'Reset'
@@ -156,6 +155,10 @@ export class AppComponent {
       }
     ]
   };
+
+  receiveData(data: any) {
+    console.log(data);
+  }
 
   onUpload(event: any) {
     let files = event.target.files;

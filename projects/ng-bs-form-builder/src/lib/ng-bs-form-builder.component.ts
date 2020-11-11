@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ng-bs-form-builder',
   template: `
-    <lib-form-builder [formConfig]="formConfig"></lib-form-builder>
+    <lib-form-builder [formConfig]="formConfig" (sendFormData)="sendFormDataBack($event)"></lib-form-builder>
   `,
   styles: [
   ]
@@ -11,10 +11,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NgBsFormBuilderComponent implements OnInit {
 
   @Input() formConfig: any[] = [];
+  @Output() formData = new EventEmitter<object>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendFormDataBack(formData: any) {
+    this.formData.emit(formData);
   }
 
 }

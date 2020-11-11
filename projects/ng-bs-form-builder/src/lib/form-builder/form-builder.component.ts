@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,7 @@ export class FormBuilderComponent implements OnInit {
   public form: FormGroup;
   public saveButton: String = '';
   public resetButton: String = '';
+  @Output() sendFormData = new EventEmitter<object>();
 
   constructor() { }
 
@@ -29,7 +30,20 @@ export class FormBuilderComponent implements OnInit {
     let fieldsCtrls = {};
     for (let field of this.fields) {
       if (field?.required) {
-        fieldsCtrls[field.name] = new FormControl(field.value || '', [Validators.required]);
+        let validators = [Validators.required];
+        if (field?.type === 'email') {
+          validators.push(Validators.email);
+        }
+        if (field?.minLength) {
+          validators.push(Validators.minLength(field.minLength));
+        }
+        if (field?.maxLength) {
+          validators.push(Validators.maxLength(field.maxLength));
+        }
+        if (field?.pattern) {
+          validators.push(Validators.pattern(field.pattern));
+        }
+        fieldsCtrls[field.name] = new FormControl(field.value || '', validators);
       } else {
         fieldsCtrls[field.name] = new FormControl(field.value || '');
       }
@@ -41,9 +55,7 @@ export class FormBuilderComponent implements OnInit {
     if (this.getFormValidationErrors(this.form).length) {
       this.form.markAllAsTouched();
     } else {
-      if (this.formConfig['result']) {
-        sessionStorage.setItem(this.formConfig['result'], JSON.stringify(this.form.value));
-      }
+      this.sendFormData.emit(this.form.value);
     }
   }
 

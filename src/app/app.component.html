@@ -2,7 +2,7 @@
   Welcome to {{ title }} Project.!
 </div>
 <div class="form-div">
-  <ng-bs-form-builder [formConfig]="formConfig"></ng-bs-form-builder>
+  <ng-bs-form-builder [formConfig]="formConfig" (formData)="receiveData($event)"></ng-bs-form-builder>
   <br />
 </div>
 
