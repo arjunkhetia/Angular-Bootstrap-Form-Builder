@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { NgForm, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'lib-form-builder',
@@ -15,6 +15,7 @@ export class FormBuilderComponent implements OnInit {
   public saveButton: String = '';
   public resetButton: String = '';
   @Output() sendFormData = new EventEmitter<object>();
+  @ViewChild('formDirective') public formDirective: NgForm;
 
   constructor() { }
 
@@ -60,6 +61,10 @@ export class FormBuilderComponent implements OnInit {
   }
 
   reset() {
+    try {
+      document.getElementById('clearFile').click();
+    } catch (error) { }
+    this.formDirective.resetForm();
     this.form.reset();
   }
 

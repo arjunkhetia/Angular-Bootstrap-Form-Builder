@@ -21,6 +21,9 @@ export class RangeComponent implements OnInit {
 
   ngOnInit(): void {
     this.step = this.field.value;
+    this.form.valueChanges.subscribe((change) => {
+      this.step = this.field.min;
+    })
   }
 
   stepChange(event: any) {

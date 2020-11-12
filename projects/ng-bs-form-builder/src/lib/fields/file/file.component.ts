@@ -23,7 +23,12 @@ export class FileComponent implements OnInit {
   }
 
   upload(event: any) {
-    let files = event.target.files;
+    let files: any;
+    if (event?.target?.files) {
+      files = event.target.files;
+    } else {
+      files = event;
+    }
     if (files[0]) {
       this.fileName = 'File Uploaded : ';
       for (let file in files) {
@@ -39,6 +44,7 @@ export class FileComponent implements OnInit {
   }
 
   clearUpload() {
+    this.form.get(this.field.name).setValue(null);
     this.fileName = '';
   }
 

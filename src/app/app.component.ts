@@ -161,7 +161,12 @@ export class AppComponent {
   }
 
   onUpload(event: any) {
-    let files = event.target.files;
-    console.log(files[0]);
+    let files: any;
+    if (event?.target?.files) {
+      files = event.target.files;
+    } else {
+      files = event
+    }
+    console.log(files);
   }
 }

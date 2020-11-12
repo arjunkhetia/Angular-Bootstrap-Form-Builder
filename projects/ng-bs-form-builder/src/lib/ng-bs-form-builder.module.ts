@@ -15,6 +15,7 @@ import { RangeComponent } from './fields/range/range.component';
 import { DateComponent } from './fields/date/date.component';
 import { TimeComponent } from './fields/time/time.component';
 import { DatetimeComponent } from './fields/datetime/datetime.component';
+import { DragdropDirective } from './fields/file/dragdrop.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DatetimeComponent } from './fields/datetime/datetime.component';
     RangeComponent,
     DateComponent,
     TimeComponent,
-    DatetimeComponent
+    DatetimeComponent,
+    DragdropDirective
   ],
   imports: [
     BrowserModule,

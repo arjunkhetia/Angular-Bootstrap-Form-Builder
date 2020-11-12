@@ -12,7 +12,7 @@
 </div>
 
 <ng-template #formBuilder>
-    <form class="form-horizontal" [formGroup]="form">
+    <form class="form-horizontal" [formGroup]="form" #formDirective="ngForm">
         <div *ngFor="let field of fields">
             <lib-field-builder [form]="form" [field]="field"></lib-field-builder>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <span *ngIf="resetButton">
-                    <button type="button" class="btn btn-danger" (click)="reset()">
+                    <button type="reset" class="btn btn-danger" (click)="reset()">
                         {{ resetButton }}
                     </button>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
