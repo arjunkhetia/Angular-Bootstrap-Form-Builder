@@ -68,8 +68,13 @@ public formConfig: any = {
 }
 
 onUpload(event: any) {                                // Upload function called when any file is selected
-    let files = event.target.files;
-    console.log(files[0]);
+  let files: any;
+  if (event?.target?.files) {
+    files = event.target.files;
+  } else {
+    files = event
+  }
+  console.log(files);
 }
 
 receiveData(data: any) {                              // Received function called when user press save button
