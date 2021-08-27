@@ -3,3 +3,7 @@
 .form-control-label {
   @include fluid-typography(16, 18, 300, 1500);
 }
+
+.row {
+  padding: 0.5rem;
+}

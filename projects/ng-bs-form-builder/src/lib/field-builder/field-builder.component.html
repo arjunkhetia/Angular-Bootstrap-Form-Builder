@@ -1,21 +1,23 @@
-<div class="form-group row" [formGroup]="form">
-    <label class="col-md-3 form-control-label" [attr.for]="field.label">
-        {{field.label}}
-        <strong class="text-danger" *ngIf="field.required">*</strong>
-    </label>
-    <div class="col-md-9" [ngSwitch]="field.type">
-        <lib-textbox *ngSwitchCase="'text'" [field]="field" [form]="form"></lib-textbox>
-        <lib-textbox *ngSwitchCase="'email'" [field]="field" [form]="form"></lib-textbox>
-        <lib-textbox *ngSwitchCase="'password'" [field]="field" [form]="form"></lib-textbox>
-        <lib-textbox *ngSwitchCase="'number'" [field]="field" [form]="form"></lib-textbox>
-        <lib-dropdown *ngSwitchCase="'dropdown'" [field]="field" [form]="form"></lib-dropdown>
-        <lib-radio *ngSwitchCase="'radio'" [field]="field" [form]="form"></lib-radio>
-        <lib-checkbox *ngSwitchCase="'checkbox'" [field]="field" [form]="form"></lib-checkbox>
-        <lib-switch *ngSwitchCase="'switch'" [field]="field" [form]="form"></lib-switch>
-        <lib-range *ngSwitchCase="'range'" [field]="field" [form]="form"></lib-range>
-        <lib-date *ngSwitchCase="'date'" [field]="field" [form]="form"></lib-date>
-        <lib-time *ngSwitchCase="'time'" [field]="field" [form]="form"></lib-time>
-        <lib-datetime *ngSwitchCase="'datetime'" [field]="field" [form]="form"></lib-datetime>
-        <lib-file *ngSwitchCase="'file'" [field]="field" [form]="form"></lib-file>
+<div class="form-group" [formGroup]="form">
+    <div class="row">
+        <label class="col-md-3 form-control-label" [attr.for]="field.label">
+            {{field.label}}
+            <strong class="text-danger" *ngIf="field.required">*</strong>
+        </label>
+        <div class="col-md-9" [ngSwitch]="field.type">
+            <lib-textbox *ngSwitchCase="'text'" [field]="field" [form]="form"></lib-textbox>
+            <lib-textbox *ngSwitchCase="'email'" [field]="field" [form]="form"></lib-textbox>
+            <lib-textbox *ngSwitchCase="'password'" [field]="field" [form]="form"></lib-textbox>
+            <lib-textbox *ngSwitchCase="'number'" [field]="field" [form]="form"></lib-textbox>
+            <lib-dropdown *ngSwitchCase="'dropdown'" [field]="field" [form]="form"></lib-dropdown>
+            <lib-radio *ngSwitchCase="'radio'" [field]="field" [form]="form"></lib-radio>
+            <lib-checkbox *ngSwitchCase="'checkbox'" [field]="field" [form]="form"></lib-checkbox>
+            <lib-switch *ngSwitchCase="'switch'" [field]="field" [form]="form"></lib-switch>
+            <lib-range *ngSwitchCase="'range'" [field]="field" [form]="form"></lib-range>
+            <lib-date *ngSwitchCase="'date'" [field]="field" [form]="form"></lib-date>
+            <lib-time *ngSwitchCase="'time'" [field]="field" [form]="form"></lib-time>
+            <lib-datetime *ngSwitchCase="'datetime'" [field]="field" [form]="form"></lib-datetime>
+            <lib-file *ngSwitchCase="'file'" [field]="field" [form]="form"></lib-file>
+        </div>
     </div>
 </div>
