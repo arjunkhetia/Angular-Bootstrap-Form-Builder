@@ -88,7 +88,7 @@ public formConfig: any = {
         inputStyle: {                                        // Input field CSS style properties (Note: only for text, email, password, number date, dropdown & time)
           'color': 'green'
         },
-        : {                                         // Input field text CSS style properties (Note: only for checkbox, radio, range, file & switch)
+        textStyle: {                                         // Input field text CSS style properties (Note: only for checkbox, radio, range, file & switch)
           'color': 'green'
         }
       }
