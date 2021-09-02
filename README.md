@@ -134,4 +134,4 @@ Snippet below will generate form fields
 ![Form Styles](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/formstyles.png "Form Styles")
 
 
-![New Form Styles](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/newstyles.png "New Form Styles")
+![New Form Styles](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/newstyle.png "New Form Styles")
