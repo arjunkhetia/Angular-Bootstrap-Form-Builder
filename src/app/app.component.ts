@@ -9,6 +9,10 @@ export class AppComponent {
   title = 'Angular Bootstrap Form Builder';
   public formConfig: any = {
     title: "Sample Form",
+    // titleStyle: {
+    //   'color': 'blue',
+    //   'background': 'azure'
+    // },
     controls: {
       saveButton: 'Save',
       resetButton: 'Reset'
@@ -16,13 +20,37 @@ export class AppComponent {
     fields: [
       {
         type: 'text',
+        id: 'full-name-id',
         name: 'fullName',
         label: 'Full Name',
         value: '',
         required: true,
-        validationMessage: 'Full Name is required.',
+        requiredMessage: 'Full Name is required.',
+        // minLength: 10,
+        // minLengthMessage: 'Minimum length is required.',
+        // maxLength: 20,
+        // pattern: "^[a-zA-Z0-9]+$",
+        // patternMessage: 'Invalid Full Name.',
         multiline: false,
-        placeholder: 'Full Name'
+        placeholder: 'Full Name',
+        // readonly: true,
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        },
+        // containerStyle: {
+        //   'width': '50%',
+        //   'float': 'left'
+        // },
+        // labelStyle: {
+        //   'width': '50%',
+        //   'color': 'orange'
+        // },
+        // inputContainerStyle: {
+        //   'width': '50%'
+        // },
+        // inputStyle: {
+        //   'color': 'green'
+        // }
       },
       {
         type: 'email',
@@ -31,7 +59,10 @@ export class AppComponent {
         value: '',
         required: true,
         validationMessage: 'Email Address is required.',
-        placeholder: 'Email Address'
+        placeholder: 'Email Address',
+        // containerStyle: {
+        //   'width': '50%'
+        // }
       },
       {
         type: 'text',

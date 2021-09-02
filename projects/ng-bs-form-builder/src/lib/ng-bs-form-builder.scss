@@ -1,6 +1,6 @@
 @mixin fluid-typography($minFont, $maxFont, $minBreakpoint, $maxBreakpoint) {
   $maxLessOne: $maxBreakpoint - 1;
-  $avg: ($maxFont + $minFont) / 2;
+  $avg: ($maxFont + $minFont) * 0.5;
   font-size: #{$minFont}px;
   @media (min-width: #{$minBreakpoint}px) and (max-width: #{$maxLessOne}px) {
     font-size: #{$avg}px;
