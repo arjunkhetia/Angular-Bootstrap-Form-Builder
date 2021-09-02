@@ -10,6 +10,7 @@ export class RadioComponent implements OnInit {
 
   @Input() field: any = {};
   @Input() form: FormGroup;
+  public validationMessage: string = '';
 
   get isValid() { return this.form.controls[this.field.name].valid; }
   get isDirty() { return this.form.controls[this.field.name].dirty; }
@@ -19,6 +20,18 @@ export class RadioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.field && this.field.required) {
+      this.validationMessage = this.field.requiredMessage;
+    }
+  }
+
+  onChange(event: any) {
+    if (this.field && this.field.onChange) {
+      this.field.onChange(event);
+    }
+    if (this.isErrors) {
+      this.validationMessage = this.field.requiredMessage;
+    }
   }
 
 }

@@ -22,12 +22,11 @@
 }
 
 .pad-bot {
-  padding-bottom: 1em;
   padding-right: 1em;
 }
 
 .invalid-feedback {
-  padding-bottom: 1em;
+  margin-top: -1em;
 }
 
 @supports (-webkit-appearance: none) or (-moz-appearance: none) {

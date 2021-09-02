@@ -11,6 +11,7 @@ export class RangeComponent implements OnInit {
   @Input() field: any = {};
   @Input() form: FormGroup;
   public step: any = '';
+  public validationMessage: string = '';
 
   get isValid() { return this.form.controls[this.field.name].valid; }
   get isDirty() { return this.form.controls[this.field.name].dirty; }
@@ -20,14 +21,23 @@ export class RangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.field && this.field.required) {
+      this.validationMessage = this.field.requiredMessage;
+    }
     this.step = this.field.value;
     this.form.valueChanges.subscribe((change) => {
       this.step = this.field.min;
-    })
+    });
   }
 
   stepChange(event: any) {
     this.step = event.target.value;
+    if (this.field && this.field.onChange) {
+      this.field.onChange(event);
+    }
+    if (this.isErrors) {
+      this.validationMessage = this.field.requiredMessage;
+    }
   }
 
 }

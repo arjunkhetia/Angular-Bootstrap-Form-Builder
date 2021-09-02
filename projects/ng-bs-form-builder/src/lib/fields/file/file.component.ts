@@ -11,6 +11,7 @@ export class FileComponent implements OnInit {
   @Input() field: any = {};
   @Input() form: FormGroup;
   public fileName: String = '';
+  public validationMessage: string = '';
 
   get isValid() { return this.form.controls[this.field.name].valid; }
   get isDirty() { return this.form.controls[this.field.name].dirty; }
@@ -30,6 +31,7 @@ export class FileComponent implements OnInit {
       files = event;
     }
     if (files[0]) {
+      this.validationMessage = '';
       this.fileName = 'File Uploaded : ';
       for (let file in files) {
         if (files[file]['name'] && (files[file]['name'] !== 'item')) {
@@ -46,6 +48,9 @@ export class FileComponent implements OnInit {
   clearUpload() {
     this.form.get(this.field.name).setValue(null);
     this.fileName = '';
+    if (this.isErrors && this.field && this.field.required) {
+      this.validationMessage = this.field.requiredMessage;
+    }
   }
 
 }

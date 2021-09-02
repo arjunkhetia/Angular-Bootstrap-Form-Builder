@@ -1,6 +1,8 @@
 <div [formGroup]="form">
     <select class="form-control custom-select" [class.is-invalid]="isDirty && !isValid"
-        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name" [formControlName]="field.name">
+        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.id" [formControlName]="field.name"
+        (change)="onChange($event)" [attr.disabled]="field?.readonly" [ngStyle]="field?.inputStyle"
+        [style.pointer-events]="field?.readonly ? 'none' : 'auto'">
         <option *ngIf="field.placeholder" value="" disabled selected>
             {{ field.placeholder }}
         </option>
@@ -8,7 +10,7 @@
             {{opt.label}}
         </option>
     </select>
-    <div *ngIf="field.validationMessage" class="invalid-feedback">
-        {{ field.validationMessage }}
+    <div *ngIf="validationMessage" class="invalid-feedback">
+        {{ validationMessage }}
     </div>
 </div>

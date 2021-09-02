@@ -1,8 +1,9 @@
 <div [formGroup]="form">
     <input type="date" [min]="field.min" [max]="field.max" class="form-control" [class.is-invalid]="isDirty && !isValid"
-        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name" [name]="field.name"
-        [formControlName]="field.name" />
-    <div *ngIf="field.validationMessage" class="invalid-feedback">
-        {{ field.validationMessage }}
+        [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.id" [name]="field.name"
+        [readonly]="field?.readonly" [formControlName]="field.name" (change)="onChange($event)"
+        [ngStyle]="field?.inputStyle" [style.pointer-events]="field?.readonly ? 'none' : 'auto'"/>
+    <div *ngIf="validationMessage" class="invalid-feedback">
+        {{ validationMessage }}
     </div>
 </div>

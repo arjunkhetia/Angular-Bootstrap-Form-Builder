@@ -58,7 +58,7 @@ export class AppComponent {
         label: 'Email Address',
         value: '',
         required: true,
-        validationMessage: 'Email Address is required.',
+        requiredMessage: 'Email Address is required.',
         placeholder: 'Email Address',
         // containerStyle: {
         //   'width': '50%'
@@ -79,6 +79,7 @@ export class AppComponent {
         name: 'gender',
         label: 'Gender',
         required: true,
+        requiredMessage: 'Select Gender.',
         style: 'row',
         value: '',
         options: [
@@ -86,7 +87,13 @@ export class AppComponent {
           { key: 'female', label: 'Female' },
           { key: 'other', label: 'Other' }
         ],
-        validationMessage: 'Select Gender.'
+        // readonly: true,
+        onChange: (data: any) => {
+          console.log(data);
+        },
+        // textStyle: {
+        //   'color': 'green'
+        // }
       },
       {
         type: 'date',
@@ -96,7 +103,10 @@ export class AppComponent {
         // min: '2018-01-01',
         // max: '2018-12-31',
         required: true,
-        validationMessage: 'Please Select Birth Date.',
+        requiredMessage: 'Please Select Birth Date.',
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        }
       },
       {
         type: 'time',
@@ -104,7 +114,10 @@ export class AppComponent {
         label: 'Birth Time',
         // value: '06:35',
         required: true,
-        validationMessage: 'Please Select Birth Time.',
+        requiredMessage: 'Please Select Birth Time.',
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        }
       },
       {
         type: 'dropdown',
@@ -112,13 +125,16 @@ export class AppComponent {
         label: 'Country',
         value: '',
         required: true,
+        requiredMessage: 'Please Select Country.',
         options: [
           { key: 'india', label: 'India' },
           { key: 'usa', label: 'USA' },
           { key: 'canada', label: 'Canada' }
         ],
         placeholder: 'Select Country',
-        validationMessage: 'Please Select Country.',
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        }
       },
       {
         type: 'range',
@@ -130,7 +146,10 @@ export class AppComponent {
         step: 5,
         value: "0",
         required: true,
-        validationMessage: 'Please Select Salary.',
+        requiredMessage: 'Please Select Salary.',
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        }
       },
       {
         type: 'datetime',
@@ -138,7 +157,10 @@ export class AppComponent {
         label: 'Project Date & Time',
         // value: '1990-03-28T06:35',
         required: true,
-        validationMessage: 'Project Date & Time is required.',
+        requiredMessage: 'Project Date & Time is required.',
+        onChange: (event: any) => {
+          console.log(event.target.value);
+        }
       },
       {
         type: 'file',
@@ -148,16 +170,17 @@ export class AppComponent {
         value: null,
         required: true,
         onUpload: this.onUpload.bind(this),
-        validationMessage: 'Please Select Project Image Files.',
+        requiredMessage: 'Please Select Project Image Files.',
       },
       {
         type: 'checkbox',
         name: 'laguages',
         label: 'Languages',
         required: true,
+        requiredMessage: 'Please Select Languages.',
         style: 'row',
         value: {
-          // cooking: false, dancing: true
+          // english: false, gujarati: true
         },
         options: [
           { key: 'english', label: 'English' },
@@ -166,13 +189,19 @@ export class AppComponent {
           { key: 'french', label: 'French' },
           { key: 'spanish', label: 'Spanish' }
         ],
-        validationMessage: 'Please Select Languages.'
+        onChange: (options: any) => {
+          console.log(options);
+        },
+        // textStyle: {
+        //   'color': 'green'
+        // }
       },
       {
         type: 'switch',
         name: 'socialaccount',
         label: 'Social Account',
-        required: false,
+        required: true,
+        requiredMessage: 'Please Select Social Account.',
         style: 'row',
         value: {
           // maths: true
@@ -182,7 +211,9 @@ export class AppComponent {
           { key: 'linkedin', label: 'LinkedIn' },
           { key: 'whatsapp', label: 'WhatsApp' }
         ],
-        validationMessage: 'Please Select Social Account.'
+        onChange: (options: any) => {
+          console.log(options);
+        }
       }
     ]
   };

@@ -85,7 +85,10 @@ public formConfig: any = {
         inputContainerStyle: {                               // InputContainer -> (container + input field) CSS style properties
           'width': '50%'
         },
-        inputStyle: {                                        // Input field CSS style properties
+        inputStyle: {                                        // Input field CSS style properties (Note: only for text, email, password, number date, dropdown & time)
+          'color': 'green'
+        },
+        : {                                         // Input field text CSS style properties (Note: only for checkbox, radio, range, file & switch)
           'color': 'green'
         }
       }
@@ -129,3 +132,6 @@ Snippet below will generate form fields
 ### Form Styles
 
 ![Form Styles](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/formstyles.png "Form Styles")
+
+
+![New Form Styles](https://github.com/arjunkhetia/Angular-Bootstrap-Form-Builder/blob/master/src/assets/newstyles.png "New Form Styles")

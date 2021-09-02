@@ -1,11 +1,13 @@
 <div [formGroup]="form">
     <input type="range" [min]="field.min" [max]="field.max" [step]="field.step" class="w-100"
-        [class.is-invalid]="isDirty && !isValid" [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.name"
-        [name]="field.name" (input)="stepChange($event)" (change)="stepChange($event)" [formControlName]="field.name">
-    <div class="text-center">
+        [class.is-invalid]="isDirty && !isValid" [ngClass]="{'is-invalid': isTouched && isErrors }" [id]="field.id"
+        [name]="field.name" (input)="stepChange($event)" (change)="stepChange($event)" [formControlName]="field.name"
+        [readonly]="field?.readonly" [style.pointer-events]="field?.readonly ? 'none' : 'auto'"
+        [attr.disabled]="field?.readonly">
+    <div class="text-center" [ngStyle]="field?.textStyle">
         {{ field.sliderLabel }} {{ step }}
     </div>
-    <div *ngIf="field.validationMessage" class="invalid-feedback">
-        {{ field.validationMessage }}
+    <div *ngIf="validationMessage" class="invalid-feedback">
+        {{ validationMessage }}
     </div>
 </div>

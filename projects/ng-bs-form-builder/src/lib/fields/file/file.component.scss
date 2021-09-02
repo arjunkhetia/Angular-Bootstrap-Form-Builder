@@ -74,3 +74,8 @@ p {
 progress::-webkit-progress-value {
   transition: width 0.1s ease;
 }
+
+.invalid-feedback {
+  display: block;
+  padding-bottom: 1em;
+}

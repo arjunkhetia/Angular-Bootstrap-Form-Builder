@@ -10,7 +10,7 @@ export class TextboxComponent implements OnInit {
 
   @Input() field: any = {};
   @Input() form: FormGroup;
-  validationMessage: string = '';
+  public validationMessage: string = '';
 
   get isValid() { return this.form.controls[this.field.name].valid; }
   get isDirty() { return this.form.controls[this.field.name].dirty; }

@@ -11,6 +11,7 @@ export class CheckboxComponent implements OnInit {
   @Input() field: any = {};
   @Input() form: FormGroup;
   public isEmpty = true;
+  public validationMessage: string = '';
 
   get isValid() { return this.form.controls[this.field.name].valid; }
   get isDirty() { return this.form.controls[this.field.name].dirty; }
@@ -23,7 +24,7 @@ export class CheckboxComponent implements OnInit {
     this.checkIsEmpty();
   }
 
-  checkChecked(key, value) {
+  checkChecked(key: any, value: any) {
     if (value[key]) {
       return true;
     } else {
@@ -31,13 +32,21 @@ export class CheckboxComponent implements OnInit {
     }
   }
 
-  onCheckChange(event) {
+  onCheckChange(event: any) {
     if (this.field.value[event.target.value]) {
       this.field.value[event.target.value] = false;
     } else {
       this.field.value[event.target.value] = true;
     }
     this.checkIsEmpty();
+    if (this.field && this.field.onChange) {
+      this.field.onChange(this.form.controls[this.field.name].value);
+    }
+    if (this.isEmpty && this.field.required) {
+      this.validationMessage = this.field.requiredMessage;
+    } else {
+      this.validationMessage = ''
+    }
   }
 
   checkIsEmpty() {
